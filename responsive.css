@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        font-size: 1em;
+    }
+}
