@@ -3,32 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kendrick Lamar – The Culture</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="The Culture - Eine Website, die sich mit den Rappern aus Compton und ihrem Einfluss auf die Hip-Hop-Kultur beschäftigt.">
+    <meta name="author" content="The Culture Team">
+    <title>The Culture - Compton Rapper</title>
+    <style>
+        /* Grundlegendes Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #181818;
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: url('header-image.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: gold;
+        }
+
+        header h1 {
+            font-size: 4em;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: gold;
+            margin: 0 25px;
+            text-decoration: none;
+            font-size: 1.3em;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: red;
+        }
+
+        /* Sektionen */
+        section {
+            padding: 50px 20px;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: gold;
+        }
+
+        section p {
+            font-size: 1.1em;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .card h3 {
+            color: gold;
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: gold;
+            color: black;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: red;
+        }
+
+        /* Kontaktformular */
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #222;
+            color: white;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: gold;
+            color: black;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: red;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            color: gray;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: gold;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: red;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 1.1em;
+                margin: 0 15px;
+            }
+
+            header h1 {
+                font-size: 3em;
+            }
+
+            section {
+                padding: 30px 15px;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Kendrick Lamar</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Start</a></li>
-                <li><a href="artists.html">Künstler</a></li>
-                <li><a href="article.html">Artikel</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
-            </ul>
-        </nav>
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Startseite</a>
+        <a href="#artists">Künstler</a>
+        <a href="#albums">Alben & Songs</a>
+        <a href="#culture">Einfluss auf die Kultur</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
+
+    <!-- Startseite -->
+    <header id="home">
+        <h1>The Culture</h1>
+        <p>Erfahre mehr über die Rapper aus Compton und ihren Einfluss auf die Musik- und Hip-Hop-Kultur.</p>
+        <a href="#artists" class="button">Jetzt Künstler entdecken</a>
     </header>
 
-    <section class="artist-profile">
-        <img src="images/kendrick.jpg" alt="Kendrick Lamar">
-        <h2>Kendrick Lamar</h2>
-        <p>Kendrick Lamar Duckworth ist ein US-amerikanischer Rapper, Songwriter und Musikproduzent. Er gilt als einer der besten Lyriker seiner Generation.</p>
-        <a href="article.html" class="btn">Mehr lesen</a>
+    <!-- Künstler-Seite -->
+    <section id="artists">
+        <h2>Künstler aus Compton</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="kendrick-lamar.jpg" alt="Kendrick Lamar">
+                <h3>Kendrick Lamar</h3>
+                <p>Einflussreicher Rapper und Poet, bekannt für Alben wie "To Pimp a Butterfly" und "DAMN!".</p>
+                <a href="https://www.youtube.com/watch?v=tvTRZJ-4EyI" class="button" target="_blank">Bekanntester Song</a>
+            </div>
+            <div class="card">
+                <img src="nwa.jpg" alt="N.W.A">
+                <h3>N.W.A</h3>
+                <p>Die legendäre Gruppe, die Gangsta Rap populär machte und die Musikgeschichte revolutionierte.</p>
+                <a href="https://www.youtube.com/watch?v=H5c65sXnNfI" class="button" target="_blank">Bekanntester Song</a>
+            </div>
+            <div class="card">
+                <img src="the-game.jpg" alt="The Game">
+                <h3>The Game</h3>
+                <p>Ein Rapper, der Compton auf der Karte hielt, bekannt für sein Album "The Documentary".</p>
+                <a href="https://www.youtube.com/watch?v=2jY0-SrXOhw" class="button" target="_blank">Bekanntester Song</a>
+            </div>
+        </div>
     </section>
 
+    <!-- Alben & Songs -->
+    <section id="albums">
+        <h2>Berühmte Alben & Songs</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>"To Pimp a Butterfly" - Kendrick Lamar</h3>
+                <p>Ein Meisterwerk, das soziale Themen und politisches Bewusstsein in den Vordergrund stellt.</p>
+                <a href="https://www.youtube.com/watch?v=tvTRZJ-4EyI" class="button" target="_blank">Mehr erfahren</a>
+            </div>
+            <div class="card">
+                <h3>"Straight Outta Compton" - N.W.A</h3>
+                <p>Ein bahnbrechendes Album, das den Gangsta Rap weltweit bekannt machte.</p>
+                <a href="https://www.youtube.com/watch?v=H5c65sXnNfI" class="button" target="_blank">Mehr erfahren</a>
+            </div>
+            <div class="card">
+                <h3>"The Documentary" - The Game</h3>
+                <p>Ein Album, das seine Karriere definierte und ihn zu einer Legende machte.</p>
+                <a href="https://www.youtube.com/watch?v=2jY0-SrXOhw" class="button" target="_blank">Mehr erfahren</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Einfluss auf die Kultur -->
+    <section id="culture">
+        <h2>Einfluss auf die Kultur</h2>
+        <p>Die Rapper aus Compton haben nicht nur die Musikindustrie verändert, sondern auch die Hip-Hop-Kultur weltweit geprägt. Ihre Texte und Alben spiegeln die soziale Realität wider und haben das Bild von Compton als Stadt des Widerstands und der Kreativität etabliert.</p>
+    </section>
+
+    <!-- Kontakt-Seite -->
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <div class="contact-form">
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message">Nachricht:</label><br>
+                <textarea id="message" name="message" rows="5" required></textarea><br><br>
+                <button type="submit" class="button">Absenden</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 The Culture Magazin</p>
+        <p>&copy; 2025 The Culture. Alle Rechte vorbehalten.</p>
+        <p><a href="https://facebook.com/TheCulture" target="_blank">Facebook</a> | <a href="https://twitter.com/TheCulture" target="_blank">Twitter</a> | <a href="https://instagram.com/TheCulture" target="_blank">Instagram</a></p>
     </footer>
 
 </body>
