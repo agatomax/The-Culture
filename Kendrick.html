@@ -9,7 +9,7 @@
     <style>
         /* Grundlegendes Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #181818;
             color: white;
             margin: 0;
@@ -18,7 +18,6 @@
         }
 
         h1, h2, h3 {
-            font-family: 'Arial', sans-serif;
             text-transform: uppercase;
             margin: 0;
         }
@@ -38,6 +37,7 @@
             align-items: center;
             text-align: center;
             color: gold;
+            animation: fadeIn 2s ease-in;
         }
 
         header h1 {
@@ -60,6 +60,7 @@
             display: flex;
             justify-content: center;
             z-index: 1000;
+            animation: slideDown 0.5s ease-out;
         }
 
         nav a {
@@ -67,8 +68,8 @@
             margin: 0 25px;
             text-decoration: none;
             font-size: 1.3em;
-            transition: color 0.3s;
             font-weight: bold;
+            transition: color 0.3s;
         }
 
         nav a:hover {
@@ -78,16 +79,13 @@
         /* Sektionen */
         section {
             padding: 50px 20px;
+            animation: fadeInUp 1s ease-in-out;
         }
 
         section h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
             color: gold;
-        }
-
-        section p {
-            font-size: 1.1em;
         }
 
         .card-container {
@@ -102,6 +100,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .card:hover {
@@ -202,6 +201,61 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Animation Definitions */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Weitere Animationen für Interaktivität */
+        .fadeIn {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .slideIn {
+            animation: slideDown 1s ease-out;
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Erweiterte Styling-Optionen */
+        .highlighted {
+            color: red;
+            font-weight: bold;
+        }
+
+        .section-background {
+            background: #222;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #bbb;
+            font-size: 1.3em;
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -216,39 +270,40 @@
     </nav>
 
     <!-- Startseite -->
-    <header id="home">
+    <header id="home" class="fadeIn">
         <h1>The Culture</h1>
         <p>Erfahre mehr über die Rapper aus Compton und ihren Einfluss auf die Musik- und Hip-Hop-Kultur.</p>
-        <a href="#artists" class="button">Jetzt Künstler entdecken</a>
+        <a href="#artists" class="button bounce">Jetzt Künstler entdecken</a>
     </header>
 
     <!-- Künstler-Seite -->
-    <section id="artists">
+    <section id="artists" class="section-background fadeIn">
         <h2>Künstler aus Compton</h2>
         <div class="card-container">
             <div class="card">
-                <img src="kendrick-lamar.jpg" alt="Kendrick Lamar">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Kendrick_Lamar_-_Kendrick_Lamar_%28%282017%29.jpg" alt="Kendrick Lamar">
                 <h3>Kendrick Lamar</h3>
                 <p>Einflussreicher Rapper und Poet, bekannt für Alben wie "To Pimp a Butterfly" und "DAMN!".</p>
                 <a href="https://www.youtube.com/watch?v=tvTRZJ-4EyI" class="button" target="_blank">Bekanntester Song</a>
             </div>
             <div class="card">
-                <img src="nwa.jpg" alt="N.W.A">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/N.W.A._2016.jpg" alt="N.W.A">
                 <h3>N.W.A</h3>
                 <p>Die legendäre Gruppe, die Gangsta Rap populär machte und die Musikgeschichte revolutionierte.</p>
                 <a href="https://www.youtube.com/watch?v=H5c65sXnNfI" class="button" target="_blank">Bekanntester Song</a>
             </div>
             <div class="card">
-                <img src="the-game.jpg" alt="The Game">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/The_Game_2019.jpg" alt="The Game">
                 <h3>The Game</h3>
                 <p>Ein Rapper, der Compton auf der Karte hielt, bekannt für sein Album "The Documentary".</p>
                 <a href="https://www.youtube.com/watch?v=2jY0-SrXOhw" class="button" target="_blank">Bekanntester Song</a>
             </div>
         </div>
+        <p class="quote">"Die Geschichten, die ich erzähle, kommen direkt aus Compton." - Kendrick Lamar</p>
     </section>
 
     <!-- Alben & Songs -->
-    <section id="albums">
+    <section id="albums" class="section-background fadeIn">
         <h2>Berühmte Alben & Songs</h2>
         <div class="card-container">
             <div class="card">
@@ -270,13 +325,13 @@
     </section>
 
     <!-- Einfluss auf die Kultur -->
-    <section id="culture">
+    <section id="culture" class="section-background slideIn">
         <h2>Einfluss auf die Kultur</h2>
         <p>Die Rapper aus Compton haben nicht nur die Musikindustrie verändert, sondern auch die Hip-Hop-Kultur weltweit geprägt. Ihre Texte und Alben spiegeln die soziale Realität wider und haben das Bild von Compton als Stadt des Widerstands und der Kreativität etabliert.</p>
     </section>
 
     <!-- Kontakt-Seite -->
-    <section id="contact">
+    <section id="contact" class="section-background fadeIn">
         <h2>Kontakt</h2>
         <div class="contact-form">
             <form action="#" method="post">
