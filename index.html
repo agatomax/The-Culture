@@ -1,81 +1,295 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Die größte Sammlung von Compton Rappern, ihre Alben, Videos und vieles mehr.">
-    <meta name="author" content="The Culture Team">
-    <title>The Culture - Compton Rapper</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="styles/responsive.css">
+    <title>The Culture - Rapper aus Compton</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-image: url('compton-header.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #222;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: gold;
+            transition: color 0.3s ease;
+        }
+
+        /* Section */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        /* Künstler-Seite */
+        .artist-profile {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .artist-profile div {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .artist-profile div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .artist-profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .artist-profile h3 {
+            margin: 15px 0;
+            font-size: 1.5rem;
+        }
+
+        .artist-profile p {
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        /* Alben & Songs */
+        .albums {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .album {
+            background-color: #222;
+            border-radius: 10px;
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .album:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .album img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .album h4 {
+            margin: 15px 0;
+            font-size: 1.2rem;
+        }
+
+        /* Kontakt */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            background-color: #333;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: gold;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #e6b800;
+        }
+
+        footer {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: gold;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsives Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .artist-profile {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
+    <!-- Header -->
+    <header>
+        <h1>The Culture - Rapper aus Compton</h1>
+    </header>
+
     <!-- Navigation -->
-    <nav class="sticky-nav">
-        <a href="index.html" class="nav-link">Startseite</a>
-        <a href="artist1.html" class="nav-link">Kendrick Lamar</a>
-        <a href="artist2.html" class="nav-link">N.W.A</a>
-        <a href="artist3.html" class="nav-link">The Game</a>
-        <a href="albums.html" class="nav-link">Alben</a>
-        <a href="contact.html" class="nav-link">Kontakt</a>
+    <nav>
+        <a href="#home">Startseite</a>
+        <a href="#artists">Künstler</a>
+        <a href="#albums">Alben & Songs</a>
+        <a href="#culture">Einfluss auf die Kultur</a>
+        <a href="#contact">Kontakt</a>
     </nav>
 
     <!-- Startseite -->
-    <header class="header">
-        <div class="header-content">
-            <h1 class="fadeIn">The Culture</h1>
-            <p class="subheading slideInUp">Erfahre mehr über die größten Rapper aus Compton und ihre weltweite Auswirkung auf die Hip-Hop-Kultur.</p>
-            <a href="#artists" class="button bounce">Jetzt Künstler entdecken</a>
-        </div>
-    </header>
+    <section id="home">
+        <h2>Willkommen zu "The Culture"</h2>
+        <p>Diese Website widmet sich den größten Rappern aus Compton, die die Hip-Hop-Kultur geprägt haben. Wir werfen einen Blick auf Künstler wie Kendrick Lamar, N.W.A., The Game, YG, Roddy Ricch und viele mehr. Tauche ein in die Welt der Rap-Ikonen, die die Musiklandschaft für immer verändert haben.</p>
+    </section>
 
-    <!-- Künstler Übersicht -->
-    <section id="artists" class="fadeInUp">
-        <h2 class="section-title">Unsere Künstler</h2>
-        <div class="card-container">
-            <div class="card zoom">
-                <img src="assets/kendrick-lamar.jpg" alt="Kendrick Lamar">
+    <!-- Künstler-Seite -->
+    <section id="artists">
+        <h2>Unsere Künstler</h2>
+        <div class="artist-profile">
+            <div>
+                <img src="kendrick-lamar.jpg" alt="Kendrick Lamar">
                 <h3>Kendrick Lamar</h3>
-                <p>Einflussreicher Rapper, bekannt für Alben wie "To Pimp a Butterfly".</p>
-                <a href="artist1.html" class="button">Mehr Informationen</a>
+                <p>Biografie von Kendrick Lamar...</p>
+                <p>Bekannte Songs: "HUMBLE.", "DNA.", "Swimming Pools", "King Kunta", "Alright"</p>
             </div>
-            <div class="card zoom">
-                <img src="assets/nwa.jpg" alt="N.W.A">
+            <div>
+                <img src="nwa.jpg" alt="N.W.A">
                 <h3>N.W.A</h3>
-                <p>Die Gangsta-Rap-Legenden, bekannt für ihre Revolution in der Musikindustrie.</p>
-                <a href="artist2.html" class="button">Mehr Informationen</a>
+                <p>Biografie von N.W.A...</p>
+                <p>Bekannte Songs: "Straight Outta Compton", "F*** Tha Police", "Express Yourself"</p>
             </div>
-            <div class="card zoom">
-                <img src="assets/the-game.jpg" alt="The Game">
+            <div>
+                <img src="thegame.jpg" alt="The Game">
                 <h3>The Game</h3>
-                <p>Ein Rapper, der Compton repräsentiert, bekannt für "The Documentary".</p>
-                <a href="artist3.html" class="button">Mehr Informationen</a>
+                <p>Biografie von The Game...</p>
+                <p>Bekannte Songs: "Hate It or Love It", "Dreams", "100", "My Life"</p>
             </div>
+            <!-- Mehr Künstler können hier hinzugefügt werden -->
         </div>
     </section>
 
-    <!-- Slider für Videos und Alben -->
-    <section id="slider" class="slider-section fadeIn">
-        <h3>Beliebte Alben und Tracks</h3>
-        <div class="image-slider">
-            <!-- Slider Images will be dynamically populated with JavaScript -->
+    <!-- Alben & Songs -->
+    <section id="albums">
+        <h2>Berühmte Alben & Songs</h2>
+        <div class="albums">
+            <div class="album">
+                <img src="kendrick-album.jpg" alt="To Pimp a Butterfly">
+                <h4>"To Pimp a Butterfly" - Kendrick Lamar</h4>
+                <p>Ein Meisterwerk von Kendrick Lamar, das soziale Probleme, Rassismus und die politische Landschaft behandelt.</p>
+            </div>
+            <div class="album">
+                <img src="nwa-album.jpg" alt="Straight Outta Compton">
+                <h4>"Straight Outta Compton" - N.W.A</h4>
+                <p>Ein revolutionäres Album, das die Hip-Hop-Kultur in die breite Masse brachte und politische Themen wie Polizeigewalt ansprach.</p>
+            </div>
+            <div class="album">
+                <img src="game-album.jpg" alt="The Documentary">
+                <h4>"The Documentary" - The Game</h4>
+                <p>The Game zeigte mit diesem Album seine Stärken und setzte sich als einer der größten westcoast Rapper durch.</p>
+            </div>
+            <!-- Weitere Alben können hier hinzugefügt werden -->
         </div>
     </section>
 
-    <!-- Ladeanimation -->
-    <section id="loading" class="fadeInUp">
-        <h3>Lade mehr Künstler...</h3>
-        <div class="spinner"></div>
+    <!-- Einfluss auf die Kultur -->
+    <section id="culture">
+        <h2>Einfluss auf die Kultur</h2>
+        <p>Die Rapper aus Compton haben nicht nur die Musikszene beeinflusst, sondern auch die soziale und politische Landschaft der USA. Ihre Texte sprechen von Armut, Gewalt und dem Streben nach Anerkennung. Die gesellschaftliche Wirkung ihrer Musik reicht weit über den Hip-Hop hinaus und beeinflusst die Mode, Sprache und das politische Bewusstsein ganzer Generationen.</p>
+        <blockquote class="quote">"Musik ist eine der letzten großen Revolutionen." - Kendrick Lamar</blockquote>
     </section>
 
+    <!-- Kontakt-Seite -->
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <form class="contact-form" action="submit_form.php" method="POST">
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <input type="email" id="email" name="email" placeholder="E-Mail" required>
+            <textarea id="message" name="message" rows="4" placeholder="Nachricht" required></textarea>
+            <input type="submit" value="Absenden">
+        </form>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 The Culture. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2025 The Culture | Alle Rechte vorbehalten.</p>
+        <p>Folge uns auf unseren sozialen Kanälen:</p>
+        <p>
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+        </p>
     </footer>
 
-    <script src="scripts/scripts.js"></script>
-    <script src="scripts/slider.js"></script>
 </body>
 </html>
-
