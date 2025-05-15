@@ -15,7 +15,6 @@
             padding: 0;
         }
 
-        /* Header */
         header {
             background-image: url('compton-header.jpg');
             background-size: cover;
@@ -34,7 +33,6 @@
             font-weight: bold;
         }
 
-        /* Navigation */
         nav {
             background-color: #222;
             position: fixed;
@@ -56,13 +54,11 @@
             transition: color 0.3s ease;
         }
 
-        /* Section */
         section {
             padding: 80px 20px;
             text-align: center;
         }
 
-        /* Künstler-Seite */
         .artist-profile {
             display: flex;
             justify-content: center;
@@ -71,36 +67,36 @@
             margin-top: 50px;
         }
 
-        .artist-profile div {
+        .artist-card {
             background-color: #333;
             padding: 20px;
             border-radius: 10px;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
-        .artist-profile div:hover {
+        .artist-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .artist-profile img {
+        .artist-card img {
             width: 200px;
             height: 200px;
             border-radius: 10px;
             object-fit: cover;
         }
 
-        .artist-profile h3 {
+        .artist-card h3 {
             margin: 15px 0;
             font-size: 1.5rem;
         }
 
-        .artist-profile p {
+        .artist-card p {
             font-size: 1rem;
             color: #ddd;
         }
 
-        /* Alben & Songs */
         .albums {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -131,7 +127,6 @@
             font-size: 1.2rem;
         }
 
-        /* Kontakt */
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -180,7 +175,6 @@
             text-decoration: underline;
         }
 
-        /* Responsives Design */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.5rem;
@@ -190,17 +184,76 @@
                 flex-direction: column;
             }
         }
+
+        /* MODAL STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            color: white;
+            text-align: center;
+            transform: scale(0.9);
+            animation: scaleUp 0.3s forwards;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: gold;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @keyframes scaleUp {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            to {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
     <header>
         <h1>The Culture - Rapper aus Compton</h1>
     </header>
 
-    <!-- Navigation -->
     <nav>
         <a href="#home">Startseite</a>
         <a href="#artists">Künstler</a>
@@ -209,69 +262,70 @@
         <a href="#contact">Kontakt</a>
     </nav>
 
-    <!-- Startseite -->
     <section id="home">
         <h2>Willkommen zu "The Culture"</h2>
-        <p>Diese Website widmet sich den größten Rappern aus Compton, die die Hip-Hop-Kultur geprägt haben. Wir werfen einen Blick auf Künstler wie Kendrick Lamar, N.W.A., The Game, YG, Roddy Ricch und viele mehr. Tauche ein in die Welt der Rap-Ikonen, die die Musiklandschaft für immer verändert haben.</p>
+        <p>Diese Website widmet sich den größten Rappern aus Compton, die die Hip-Hop-Kultur geprägt haben...</p>
     </section>
 
-    <!-- Künstler-Seite -->
     <section id="artists">
         <h2>Unsere Künstler</h2>
         <div class="artist-profile">
-            <div>
+            <div class="artist-card" data-name="Kendrick Lamar" data-info="Kendrick Lamar ist ein vielfach ausgezeichneter Rapper aus Compton..." data-songs='Bekannte Songs: "HUMBLE.", "DNA.", "Swimming Pools", "King Kunta", "Alright"' data-img="kendrick-lamar.jpg">
                 <img src="kendrick-lamar.jpg" alt="Kendrick Lamar">
                 <h3>Kendrick Lamar</h3>
                 <p>Biografie von Kendrick Lamar...</p>
-                <p>Bekannte Songs: "HUMBLE.", "DNA.", "Swimming Pools", "King Kunta", "Alright"</p>
             </div>
-            <div>
+            <div class="artist-card" data-name="N.W.A" data-info="N.W.A revolutionierte Hip-Hop mit ihrer unverblümten Darstellung der Realität in Compton." data-songs='Bekannte Songs: "Straight Outta Compton", "F*** Tha Police", "Express Yourself"' data-img="nwa.jpg">
                 <img src="nwa.jpg" alt="N.W.A">
                 <h3>N.W.A</h3>
                 <p>Biografie von N.W.A...</p>
-                <p>Bekannte Songs: "Straight Outta Compton", "F*** Tha Police", "Express Yourself"</p>
             </div>
-            <div>
+            <div class="artist-card" data-name="The Game" data-info="The Game brachte den Westcoast-Rap zurück in den Mainstream..." data-songs='Bekannte Songs: "Hate It or Love It", "Dreams", "100", "My Life"' data-img="thegame.jpg">
                 <img src="thegame.jpg" alt="The Game">
                 <h3>The Game</h3>
                 <p>Biografie von The Game...</p>
-                <p>Bekannte Songs: "Hate It or Love It", "Dreams", "100", "My Life"</p>
             </div>
-            <!-- Mehr Künstler können hier hinzugefügt werden -->
         </div>
     </section>
 
-    <!-- Alben & Songs -->
+    <!-- MODAL POPUP -->
+    <div id="artistModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="Artist">
+            <h3 id="modal-name"></h3>
+            <p id="modal-info"></p>
+            <p id="modal-songs"></p>
+        </div>
+    </div>
+
     <section id="albums">
         <h2>Berühmte Alben & Songs</h2>
         <div class="albums">
             <div class="album">
                 <img src="kendrick-album.jpg" alt="To Pimp a Butterfly">
                 <h4>"To Pimp a Butterfly" - Kendrick Lamar</h4>
-                <p>Ein Meisterwerk von Kendrick Lamar, das soziale Probleme, Rassismus und die politische Landschaft behandelt.</p>
+                <p>Ein Meisterwerk von Kendrick Lamar...</p>
             </div>
             <div class="album">
                 <img src="nwa-album.jpg" alt="Straight Outta Compton">
                 <h4>"Straight Outta Compton" - N.W.A</h4>
-                <p>Ein revolutionäres Album, das die Hip-Hop-Kultur in die breite Masse brachte und politische Themen wie Polizeigewalt ansprach.</p>
+                <p>Ein revolutionäres Album, das die Hip-Hop-Kultur veränderte...</p>
             </div>
             <div class="album">
                 <img src="game-album.jpg" alt="The Documentary">
                 <h4>"The Documentary" - The Game</h4>
-                <p>The Game zeigte mit diesem Album seine Stärken und setzte sich als einer der größten westcoast Rapper durch.</p>
+                <p>The Game zeigte mit diesem Album seine Stärken...</p>
             </div>
-            <!-- Weitere Alben können hier hinzugefügt werden -->
         </div>
     </section>
 
-    <!-- Einfluss auf die Kultur -->
     <section id="culture">
         <h2>Einfluss auf die Kultur</h2>
-        <p>Die Rapper aus Compton haben nicht nur die Musikszene beeinflusst, sondern auch die soziale und politische Landschaft der USA. Ihre Texte sprechen von Armut, Gewalt und dem Streben nach Anerkennung. Die gesellschaftliche Wirkung ihrer Musik reicht weit über den Hip-Hop hinaus und beeinflusst die Mode, Sprache und das politische Bewusstsein ganzer Generationen.</p>
+        <p>Die Rapper aus Compton haben nicht nur die Musikszene beeinflusst...</p>
         <blockquote class="quote">"Musik ist eine der letzten großen Revolutionen." - Kendrick Lamar</blockquote>
     </section>
 
-    <!-- Kontakt-Seite -->
     <section id="contact">
         <h2>Kontakt</h2>
         <form class="contact-form" action="submit_form.php" method="POST">
@@ -282,7 +336,6 @@
         </form>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 The Culture | Alle Rechte vorbehalten.</p>
         <p>Folge uns auf unseren sozialen Kanälen:</p>
@@ -291,5 +344,28 @@
         </p>
     </footer>
 
+    <script>
+        document.querySelectorAll('.artist-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.getElementById('modal-name').textContent = card.dataset.name;
+                document.getElementById('modal-info').textContent = card.dataset.info;
+                document.getElementById('modal-songs').innerHTML = card.dataset.songs;
+                document.getElementById('modal-img').src = card.dataset.img;
+                document.getElementById('artistModal').style.display = 'flex';
+            });
+        });
+
+        document.querySelector('.close').addEventListener('click', () => {
+            document.getElementById('artistModal').style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                document.getElementById('artistModal').style.display = 'none';
+            }
+        });
+    </script>
+
 </body>
+
 </html>
