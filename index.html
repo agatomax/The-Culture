@@ -14,7 +14,6 @@
       margin: 0;
       padding: 0;
     }
-
     nav {
       background-color: #222;
       position: fixed;
@@ -24,18 +23,15 @@
       padding: 15px;
       text-align: center;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       margin: 0 15px;
       font-size: 1.2rem;
     }
-
     nav a:hover {
       color: gold;
     }
-
     header {
       background-image: url('compton-header.jpg');
       background-size: cover;
@@ -47,17 +43,14 @@
       text-align: center;
       color: white;
     }
-
     header h1 {
       font-size: 4rem;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     }
-
     section {
       padding: 100px 20px 60px;
       text-align: center;
     }
-
     .artist-profile,
     .albums {
       display: flex;
@@ -65,7 +58,6 @@
       gap: 30px;
       justify-content: center;
     }
-
     .artist-card,
     .album {
       background-color: #333;
@@ -76,13 +68,11 @@
       width: 220px;
       text-align: center;
     }
-
     .artist-card:hover,
     .album:hover {
       transform: translateY(-10px);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
-
     .artist-card img,
     .album img {
       width: 100%;
@@ -90,7 +80,6 @@
       object-fit: cover;
       border-radius: 10px;
     }
-
     .extra-album {
       background-color: #333;
       padding: 10px;
@@ -99,12 +88,10 @@
       text-align: center;
       margin: 10px;
     }
-
     .extra-album img {
       width: 100%;
       border-radius: 8px;
     }
-
     .modal {
       display: none;
       position: fixed;
@@ -117,7 +104,6 @@
       align-items: center;
       z-index: 9999;
     }
-
     .modal-content {
       background-color: #222;
       padding: 30px;
@@ -127,7 +113,6 @@
       position: relative;
       text-align: center;
     }
-
     .modal-content img {
       width: 200px;
       height: 200px;
@@ -135,7 +120,6 @@
       border-radius: 10px;
       margin-bottom: 15px;
     }
-
     .close,
     .close-album {
       position: absolute;
@@ -145,14 +129,39 @@
       color: gold;
       cursor: pointer;
     }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 0 auto;
+      gap: 15px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      background-color: #333;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .contact-form input[type="submit"] {
+      background-color: gold;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .contact-form input[type="submit"]:hover {
+      background-color: #e6b800;
+    }
   </style>
 </head>
-
 <body>
   <nav>
     <a href="#home">Startseite</a>
     <a href="#artists">Künstler</a>
     <a href="#albums">Alben</a>
+    <a href="#contact">Kontakt</a>
   </nav>
 
   <header id="home">
@@ -162,13 +171,17 @@
   <section id="artists">
     <h2>Unsere Künstler</h2>
     <div class="artist-profile">
-      <div class="artist-card" data-name="Kendrick Lamar" data-info="Grammy-prämierter Rapper." data-songs='Bekannte Songs: "HUMBLE.", "DNA.", "Alright"' data-img="kendrick.jpg">
+      <div class="artist-card" data-name="Kendrick Lamar" data-info="Kendrick Lamar ist ein vielfach ausgezeichneter Rapper aus Compton." data-songs='Bekannte Songs: "HUMBLE.", "DNA.", "Alright"' data-img="kendrick.jpg">
         <img src="kendrick.jpg" alt="Kendrick Lamar">
         <h3>Kendrick Lamar</h3>
       </div>
-      <div class="artist-card" data-name="N.W.A" data-info="Legendäre Gruppe aus Compton." data-songs='Bekannte Songs: "Straight Outta Compton", "F*** Tha Police"' data-img="nwa.jpg">
+      <div class="artist-card" data-name="N.W.A" data-info="N.W.A revolutionierte die Hip-Hop-Szene mit ihrem direkten Stil." data-songs='Bekannte Songs: "Straight Outta Compton", "F*** Tha Police"' data-img="nwa.jpg">
         <img src="nwa.jpg" alt="N.W.A">
         <h3>N.W.A</h3>
+      </div>
+      <div class="artist-card" data-name="The Game" data-info="The Game brachte Westcoast-Rap zurück ins Rampenlicht." data-songs='Bekannte Songs: "Hate It or Love It", "Dreams"' data-img="thegame.jpg">
+        <img src="thegame.jpg" alt="The Game">
+        <h3>The Game</h3>
       </div>
     </div>
   </section>
@@ -191,6 +204,16 @@
     </div>
   </section>
 
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <form class="contact-form" action="#" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="E-Mail" required>
+      <textarea name="message" rows="4" placeholder="Nachricht" required></textarea>
+      <input type="submit" value="Absenden">
+    </form>
+  </section>
+
   <!-- Modals -->
   <div id="artistModal" class="modal">
     <div class="modal-content">
@@ -201,7 +224,6 @@
       <p id="modal-songs"></p>
     </div>
   </div>
-
   <div id="albumModal" class="modal">
     <div class="modal-content">
       <span class="close-album">&times;</span>
