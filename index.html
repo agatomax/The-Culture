@@ -2,260 +2,353 @@
 <html lang="de">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Culture - Rapper aus Compton</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: white;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Culture - Rapper aus Compton</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
 
-    header {
-      background-color: #222;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+        header {
+            background-image: url('compton-header.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
 
-    header h1 {
-      font-size: 3rem;
-    }
+        header h1 {
+            font-size: 4rem;
+            font-weight: bold;
+        }
 
-    nav {
-      background-color: #000;
-      padding: 10px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+        nav {
+            background-color: #222;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 15px;
+        }
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+        }
 
-    section {
-      padding: 100px 20px 60px;
-    }
+        nav a:hover {
+            color: gold;
+            transition: color 0.3s ease;
+        }
 
-    .artist-profile,
-    .albums {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
 
-    .artist-card,
-    .album {
-      background-color: #333;
-      border-radius: 10px;
-      padding: 15px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      width: 200px;
-      text-align: center;
-    }
+        .artist-profile {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
 
-    .artist-card:hover,
-    .album:hover {
-      transform: scale(1.05);
-    }
+        .artist-card {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
 
-    .artist-card img,
-    .album img {
-      width: 100%;
-      border-radius: 10px;
-    }
+        .artist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
 
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
+        .artist-card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
 
-    .modal-content {
-      background-color: #222;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 600px;
-      text-align: center;
-      position: relative;
-    }
+        .artist-card h3 {
+            margin: 15px 0;
+            font-size: 1.5rem;
+        }
 
-    .modal-content img {
-      width: 200px;
-      border-radius: 10px;
-    }
+        .artist-card p {
+            font-size: 1rem;
+            color: #ddd;
+        }
 
-    .close,
-    .close-album {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      color: gold;
-      font-size: 2rem;
-      cursor: pointer;
-    }
+        .albums {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
 
-    .extra-album {
-      background-color: #333;
-      padding: 10px;
-      border-radius: 10px;
-      max-width: 160px;
-      text-align: center;
-      margin: 10px;
-    }
+        .album {
+            background-color: #222;
+            border-radius: 10px;
+            padding: 15px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
 
-    .extra-album img {
-      width: 100%;
-      border-radius: 8px;
-    }
-  </style>
+        .album:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .album img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .album h4 {
+            margin: 15px 0;
+            font-size: 1.2rem;
+        }
+
+        .extra-album {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 160px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .extra-album:hover {
+            transform: scale(1.05);
+        }
+
+        .extra-album img {
+            width: 100%;
+            border-radius: 8px;
+            height: auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            background-color: #333;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: gold;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #e6b800;
+        }
+
+        footer {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: gold;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .artist-profile {
+                flex-direction: column;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            color: white;
+            text-align: center;
+            transform: scale(0.9);
+            animation: scaleUp 0.3s forwards;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .close,
+        .close-album {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: gold;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @keyframes scaleUp {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            to {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <nav>
-    <a href="#home">Startseite</a>
-    <a href="#artists">Künstler</a>
-    <a href="#albums">Alben</a>
-  </nav>
 
-  <header id="home">
-    <h1>The Culture - Rapper aus Compton</h1>
-  </header>
+<!-- BISHERIGER BODY-CODE UNVERÄNDERT -->
+<!-- Füge am Ende direkt vor </body> folgendes ein -->
 
-  <section id="artists">
-    <h2>Unsere Künstler</h2>
-    <div class="artist-profile">
-      <div class="artist-card" data-name="Kendrick Lamar" data-info="Grammy-prämierter Rapper." data-songs='Bekannte Songs: "HUMBLE.", "DNA.", "Alright"' data-img="kendrick.jpg">
-        <img src="kendrick.jpg" alt="Kendrick Lamar">
-        <h3>Kendrick Lamar</h3>
-      </div>
-      <div class="artist-card" data-name="N.W.A" data-info="Legendäre Gruppe aus Compton." data-songs='Bekannte Songs: "Straight Outta Compton", "F*** Tha Police"' data-img="nwa.jpg">
-        <img src="nwa.jpg" alt="N.W.A">
-        <h3>N.W.A</h3>
-      </div>
-    </div>
-  </section>
-
-  <div id="artistModal" class="modal">
+<div id="albumModal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modal-img" src="" alt="">
-      <h3 id="modal-name"></h3>
-      <p id="modal-info"></p>
-      <p id="modal-songs"></p>
+        <span class="close-album">&times;</span>
+        <img id="main-album-img" src="" alt="Album Cover" style="width: 200px; border-radius: 10px; margin-bottom: 20px;">
+        <h3 id="main-album-title"></h3>
+        <p id="main-album-desc"></p>
+        <div id="extra-albums" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 20px;"></div>
     </div>
-  </div>
+</div>
 
-  <section id="albums">
-    <h2>Berühmte Alben</h2>
-    <div class="albums">
-      <div class="album">
-        <img src="kendrick-album.jpg" alt="To Pimp a Butterfly">
-        <h4>To Pimp a Butterfly</h4>
-      </div>
-      <div class="album">
-        <img src="nwa-album.jpg" alt="Straight Outta Compton">
-        <h4>Straight Outta Compton</h4>
-      </div>
-    </div>
-  </section>
-
-  <div id="albumModal" class="modal">
-    <div class="modal-content">
-      <span class="close-album">&times;</span>
-      <img id="main-album-img" src="" alt="Album Cover">
-      <h3 id="main-album-title"></h3>
-      <p id="main-album-desc"></p>
-      <div id="extra-albums" style="display: flex; flex-wrap: wrap; justify-content: center;"></div>
-    </div>
-  </div>
-
-  <script>
-    // Artist modal
-    document.querySelectorAll('.artist-card').forEach(card => {
-      card.addEventListener('click', () => {
-        document.getElementById('modal-name').textContent = card.dataset.name;
-        document.getElementById('modal-info').textContent = card.dataset.info;
-        document.getElementById('modal-songs').innerHTML = card.dataset.songs;
-        document.getElementById('modal-img').src = card.dataset.img;
-        document.getElementById('artistModal').style.display = 'flex';
-      });
-    });
-    document.querySelector('.close').onclick = () => document.getElementById('artistModal').style.display = 'none';
-    window.onclick = e => {
-      if (e.target.id === 'artistModal') document.getElementById('artistModal').style.display = 'none';
-    };
-
-    // Album modal
-    const albumData = {
-      "To Pimp a Butterfly": {
+<script>
+const albumData = {
+    "To Pimp a Butterfly": {
         img: "kendrick-album.jpg",
-        desc: "Ein Meisterwerk von Kendrick Lamar.",
+        desc: "Ein Meisterwerk von Kendrick Lamar über soziale Gerechtigkeit.",
         extras: [
-          { img: "damn.jpg", title: "DAMN.", desc: "Mit Songs wie HUMBLE." },
-          { img: "goodkid.jpg", title: "GKMC", desc: "Kendricks Durchbruch-Album." }
+            { img: "damn.jpg", title: "DAMN.", desc: "Ein introspektives Album mit großen Hits wie HUMBLE." },
+            { img: "goodkid.jpg", title: "good kid, m.A.A.d city", desc: "Kendricks Durchbruch – ein erzählerisches Meisterwerk." }
         ]
-      },
-      "Straight Outta Compton": {
+    },
+    "Straight Outta Compton": {
         img: "nwa-album.jpg",
-        desc: "Revolutionäres Album von N.W.A.",
+        desc: "Revolutionäres Album von N.W.A über das Leben in Compton.",
         extras: [
-          { img: "efil4zaggin.jpg", title: "Efil4zaggin", desc: "Letztes Studioalbum." },
-          { img: "nwa-greatest.jpg", title: "Greatest Hits", desc: "Best-of Sammlung." }
+            { img: "efil4zaggin.jpg", title: "Efil4zaggin", desc: "N.W.A's letztes Studioalbum mit provokativen Themen." },
+            { img: "nwa-greatest.jpg", title: "Greatest Hits", desc: "Die wichtigsten Tracks von N.W.A gesammelt." }
         ]
-      }
-    };
+    },
+    "The Documentary": {
+        img: "game-album.jpg",
+        desc: "The Games Debüt – ein Statement für Westcoast-Rap.",
+        extras: [
+            { img: "doctor2.jpg", title: "The Documentary 2", desc: "Die Fortsetzung mit neuen Beats und Gästen." },
+            { img: "jesuspiece.jpg", title: "Jesus Piece", desc: "Ein Album mit spirituellen und gesellschaftlichen Themen." }
+        ]
+    }
+};
 
-    document.querySelectorAll('.album').forEach(album => {
-      album.addEventListener('click', () => {
-        const title = album.querySelector('h4').textContent.trim();
-        const data = albumData[title];
+document.querySelectorAll('.album').forEach(albumCard => {
+    albumCard.addEventListener('click', () => {
+        const albumTitle = albumCard.querySelector('h4').textContent.replace(/\"/g, '').trim();
+        const data = albumData[albumTitle];
+
         if (!data) return;
 
         document.getElementById('main-album-img').src = data.img;
-        document.getElementById('main-album-title').textContent = title;
+        document.getElementById('main-album-title').textContent = albumTitle;
         document.getElementById('main-album-desc').textContent = data.desc;
 
-        const container = document.getElementById('extra-albums');
-        container.innerHTML = '';
+        const extras = document.getElementById('extra-albums');
+        extras.innerHTML = '';
+
         data.extras.forEach(extra => {
-          const div = document.createElement('div');
-          div.className = 'extra-album';
-          div.innerHTML = `
-            <img src="${extra.img}" alt="${extra.title}">
-            <h4>${extra.title}</h4>
-            <p>${extra.desc}</p>
-          `;
-          container.appendChild(div);
+            const div = document.createElement('div');
+            div.className = 'extra-album';
+            div.innerHTML = `
+                <img src="${extra.img}" alt="${extra.title}">
+                <h4 style="margin: 10px 0;">${extra.title}</h4>
+                <p style="font-size: 0.9rem; color: #ccc;">${extra.desc}</p>
+            `;
+            extras.appendChild(div);
         });
+
         document.getElementById('albumModal').style.display = 'flex';
-      });
     });
+});
 
-    document.querySelector('.close-album').onclick = () => document.getElementById('albumModal').style.display = 'none';
-    window.addEventListener('click', e => {
-      if (e.target.id === 'albumModal') document.getElementById('albumModal').style.display = 'none';
-    });
-  </script>
+document.querySelector('.close-album').addEventListener('click', () => {
+    document.getElementById('albumModal').style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target.id === 'albumModal') {
+        document.getElementById('albumModal').style.display = 'none';
+    }
+});
+</script>
+
 </body>
-
 </html>
