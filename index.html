@@ -109,6 +109,7 @@
             border-radius: 10px;
             padding: 15px;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .album:hover {
@@ -125,6 +126,25 @@
         .album h4 {
             margin: 15px 0;
             font-size: 1.2rem;
+        }
+
+        .extra-album {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 160px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .extra-album:hover {
+            transform: scale(1.05);
+        }
+
+        .extra-album img {
+            width: 100%;
+            border-radius: 8px;
+            height: auto;
         }
 
         .contact-form {
@@ -185,7 +205,6 @@
             }
         }
 
-        /* MODAL STYLES */
         .modal {
             display: none;
             position: fixed;
@@ -221,7 +240,8 @@
             object-fit: cover;
         }
 
-        .close {
+        .close,
+        .close-album {
             position: absolute;
             top: 20px;
             right: 30px;
@@ -247,125 +267,88 @@
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>The Culture - Rapper aus Compton</h1>
-    </header>
+<!-- BISHERIGER BODY-CODE UNVERÄNDERT -->
+<!-- Füge am Ende direkt vor </body> folgendes ein -->
 
-    <nav>
-        <a href="#home">Startseite</a>
-        <a href="#artists">Künstler</a>
-        <a href="#albums">Alben & Songs</a>
-        <a href="#culture">Einfluss auf die Kultur</a>
-        <a href="#contact">Kontakt</a>
-    </nav>
-
-    <section id="home">
-        <h2>Willkommen zu "The Culture"</h2>
-        <p>Diese Website widmet sich den größten Rappern aus Compton, die die Hip-Hop-Kultur geprägt haben...</p>
-    </section>
-
-    <section id="artists">
-        <h2>Unsere Künstler</h2>
-        <div class="artist-profile">
-            <div class="artist-card" data-name="Kendrick Lamar" data-info="Kendrick Lamar ist ein vielfach ausgezeichneter Rapper aus Compton..." data-songs='Bekannte Songs: "HUMBLE.", "DNA.", "Swimming Pools", "King Kunta", "Alright"' data-img="kendrick-lamar.jpg">
-                <img src="kendrick-lamar.jpg" alt="Kendrick Lamar">
-                <h3>Kendrick Lamar</h3>
-                <p>Biografie von Kendrick Lamar...</p>
-            </div>
-            <div class="artist-card" data-name="N.W.A" data-info="N.W.A revolutionierte Hip-Hop mit ihrer unverblümten Darstellung der Realität in Compton." data-songs='Bekannte Songs: "Straight Outta Compton", "F*** Tha Police", "Express Yourself"' data-img="nwa.jpg">
-                <img src="nwa.jpg" alt="N.W.A">
-                <h3>N.W.A</h3>
-                <p>Biografie von N.W.A...</p>
-            </div>
-            <div class="artist-card" data-name="The Game" data-info="The Game brachte den Westcoast-Rap zurück in den Mainstream..." data-songs='Bekannte Songs: "Hate It or Love It", "Dreams", "100", "My Life"' data-img="thegame.jpg">
-                <img src="thegame.jpg" alt="The Game">
-                <h3>The Game</h3>
-                <p>Biografie von The Game...</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- MODAL POPUP -->
-    <div id="artistModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modal-img" src="" alt="Artist">
-            <h3 id="modal-name"></h3>
-            <p id="modal-info"></p>
-            <p id="modal-songs"></p>
-        </div>
+<div id="albumModal" class="modal">
+    <div class="modal-content">
+        <span class="close-album">&times;</span>
+        <img id="main-album-img" src="" alt="Album Cover" style="width: 200px; border-radius: 10px; margin-bottom: 20px;">
+        <h3 id="main-album-title"></h3>
+        <p id="main-album-desc"></p>
+        <div id="extra-albums" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 20px;"></div>
     </div>
+</div>
 
-    <section id="albums">
-        <h2>Berühmte Alben & Songs</h2>
-        <div class="albums">
-            <div class="album">
-                <img src="kendrick-album.jpg" alt="To Pimp a Butterfly">
-                <h4>"To Pimp a Butterfly" - Kendrick Lamar</h4>
-                <p>Ein Meisterwerk von Kendrick Lamar...</p>
-            </div>
-            <div class="album">
-                <img src="nwa-album.jpg" alt="Straight Outta Compton">
-                <h4>"Straight Outta Compton" - N.W.A</h4>
-                <p>Ein revolutionäres Album, das die Hip-Hop-Kultur veränderte...</p>
-            </div>
-            <div class="album">
-                <img src="game-album.jpg" alt="The Documentary">
-                <h4>"The Documentary" - The Game</h4>
-                <p>The Game zeigte mit diesem Album seine Stärken...</p>
-            </div>
-        </div>
-    </section>
+<script>
+const albumData = {
+    "To Pimp a Butterfly": {
+        img: "kendrick-album.jpg",
+        desc: "Ein Meisterwerk von Kendrick Lamar über soziale Gerechtigkeit.",
+        extras: [
+            { img: "damn.jpg", title: "DAMN.", desc: "Ein introspektives Album mit großen Hits wie HUMBLE." },
+            { img: "goodkid.jpg", title: "good kid, m.A.A.d city", desc: "Kendricks Durchbruch – ein erzählerisches Meisterwerk." }
+        ]
+    },
+    "Straight Outta Compton": {
+        img: "nwa-album.jpg",
+        desc: "Revolutionäres Album von N.W.A über das Leben in Compton.",
+        extras: [
+            { img: "efil4zaggin.jpg", title: "Efil4zaggin", desc: "N.W.A's letztes Studioalbum mit provokativen Themen." },
+            { img: "nwa-greatest.jpg", title: "Greatest Hits", desc: "Die wichtigsten Tracks von N.W.A gesammelt." }
+        ]
+    },
+    "The Documentary": {
+        img: "game-album.jpg",
+        desc: "The Games Debüt – ein Statement für Westcoast-Rap.",
+        extras: [
+            { img: "doctor2.jpg", title: "The Documentary 2", desc: "Die Fortsetzung mit neuen Beats und Gästen." },
+            { img: "jesuspiece.jpg", title: "Jesus Piece", desc: "Ein Album mit spirituellen und gesellschaftlichen Themen." }
+        ]
+    }
+};
 
-    <section id="culture">
-        <h2>Einfluss auf die Kultur</h2>
-        <p>Die Rapper aus Compton haben nicht nur die Musikszene beeinflusst...</p>
-        <blockquote class="quote">"Musik ist eine der letzten großen Revolutionen." - Kendrick Lamar</blockquote>
-    </section>
+document.querySelectorAll('.album').forEach(albumCard => {
+    albumCard.addEventListener('click', () => {
+        const albumTitle = albumCard.querySelector('h4').textContent.replace(/\"/g, '').trim();
+        const data = albumData[albumTitle];
 
-    <section id="contact">
-        <h2>Kontakt</h2>
-        <form class="contact-form" action="submit_form.php" method="POST">
-            <input type="text" id="name" name="name" placeholder="Name" required>
-            <input type="email" id="email" name="email" placeholder="E-Mail" required>
-            <textarea id="message" name="message" rows="4" placeholder="Nachricht" required></textarea>
-            <input type="submit" value="Absenden">
-        </form>
-    </section>
+        if (!data) return;
 
-    <footer>
-        <p>&copy; 2025 The Culture | Alle Rechte vorbehalten.</p>
-        <p>Folge uns auf unseren sozialen Kanälen:</p>
-        <p>
-            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
-        </p>
-    </footer>
+        document.getElementById('main-album-img').src = data.img;
+        document.getElementById('main-album-title').textContent = albumTitle;
+        document.getElementById('main-album-desc').textContent = data.desc;
 
-    <script>
-        document.querySelectorAll('.artist-card').forEach(card => {
-            card.addEventListener('click', () => {
-                document.getElementById('modal-name').textContent = card.dataset.name;
-                document.getElementById('modal-info').textContent = card.dataset.info;
-                document.getElementById('modal-songs').innerHTML = card.dataset.songs;
-                document.getElementById('modal-img').src = card.dataset.img;
-                document.getElementById('artistModal').style.display = 'flex';
-            });
+        const extras = document.getElementById('extra-albums');
+        extras.innerHTML = '';
+
+        data.extras.forEach(extra => {
+            const div = document.createElement('div');
+            div.className = 'extra-album';
+            div.innerHTML = `
+                <img src="${extra.img}" alt="${extra.title}">
+                <h4 style="margin: 10px 0;">${extra.title}</h4>
+                <p style="font-size: 0.9rem; color: #ccc;">${extra.desc}</p>
+            `;
+            extras.appendChild(div);
         });
 
-        document.querySelector('.close').addEventListener('click', () => {
-            document.getElementById('artistModal').style.display = 'none';
-        });
+        document.getElementById('albumModal').style.display = 'flex';
+    });
+});
 
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal')) {
-                document.getElementById('artistModal').style.display = 'none';
-            }
-        });
-    </script>
+document.querySelector('.close-album').addEventListener('click', () => {
+    document.getElementById('albumModal').style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target.id === 'albumModal') {
+        document.getElementById('albumModal').style.display = 'none';
+    }
+});
+</script>
 
 </body>
-
 </html>
